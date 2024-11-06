@@ -1,5 +1,7 @@
 # PatrulhaRobo
 
+[Blog Patrulha Robô](https://www.notion.so/Patrulha-Rob-12103987007e80c881e9e9322f15c88d?pvs=4)
+
 Projeto desenvolvido para a disciplina Oficina de Integração 2, do curso de Engenharia de Computação da UTFPR Campus Curitiba.  
 
 A segurança industrial é de suma importância nas fábricas, especialmente em locais onde há risco de vazamento de gases. Esses vazamentos, além de gerarem prejuízo às empresas, podem apresentar riscos à saúde dos trabalhadores, causar explosões, incêndios e danos ao meio ambiente.  
