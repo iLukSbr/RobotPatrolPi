@@ -1,11 +1,11 @@
-# PatrulhaRobo
+# Robot Patrol - Raspberry Pi
 
-[Blog Patrulha Robô](https://www.notion.so/Patrulha-Rob-12103987007e80c881e9e9322f15c88d?pvs=4)
+[Robot Patrol Blog](https://www.notion.so/Patrulha-Rob-12103987007e80c881e9e9322f15c88d?pvs=4)
 
-Projeto desenvolvido para a disciplina Oficina de Integração 2, do curso de Engenharia de Computação da UTFPR Campus Curitiba.  
+Project developed for the Integration Workshop 2 course in Computer Engineering at UTFPR Curitiba Campus.  
 
-A segurança industrial é de suma importância nas fábricas, especialmente em locais onde há risco de vazamento de gases. Esses vazamentos, além de gerarem prejuízo às empresas, podem apresentar riscos à saúde dos trabalhadores, causar explosões, incêndios e danos ao meio ambiente.  
+Industrial safety is of paramount importance in factories, especially in places where there is a risk of gas leaks. These leaks, as well as causing losses for companies, can pose health risks to workers, cause explosions, fires and damage the environment.  
 
-Pensando nisso, este projeto envolve a criação de um robô autônomo capaz de se movimentar dentro de fábricas ou outros ambientes fechados. O robô vai usar AprilTags espalhados pelo local para se orientar, seguindo as instruções de direção contidas neles. Além disso, ele terá uma câmera para analisar imagens e melhorar a navegação.  
+With this in mind, this project involves the creation of an autonomous robot capable of moving around inside factories or other closed environments. The robot will use AprilTags scattered around the site to find its way around, following the driving instructions on them. It will also have a camera to analyze images and improve navigation.  
 
-O robô também contará com sensores para detectar vazamentos de gás e chamas, ajudando a garantir a segurança do ambiente. Enquanto percorre o local, o robô enviará informações sobre o caminho que seguiu e alertará, em tempo real, sobre vazamentos ou incêndios para um aplicativo criado pela nossa equipe.  
+The robot will also have sensors to detect gas leaks and flames, helping to ensure the safety of the environment. As it travels around the site, the robot will send information about the path it has followed and alert an app created by our team in real time about leaks or fires.  
