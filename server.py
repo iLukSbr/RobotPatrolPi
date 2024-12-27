@@ -14,7 +14,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
         print(f"Connected by {addr}")
         while True:
             # Send data periodically
-            message = "155"
+            
+            message = "100,25,40,160,Detectada"
             conn.sendall(message.encode())
             print(f"Sent: {message}")
-            time.sleep(2)  # Wait 2 seconds before sending the next message
+            
+            time.sleep(1)  # Wait 1 second before sending the next message
+
