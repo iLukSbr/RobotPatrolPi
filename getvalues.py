@@ -9,9 +9,6 @@ UARTComm_instance = UARTComm()
 
 while True:
     try:
-
-        message = UARTComm_instance.read_serial()
-
         #parts = message.split(",")
 
         #co2 = parts[0]
@@ -30,9 +27,10 @@ while True:
                 print(f"Connected by {addr}")
                 while True:
                     # Send data periodically
-
-                    conn.sendall(message.encode())
-                    print(f"Sent: {message}")
+                    message = UARTComm_instance.read_serial()
+                    if message is not None:
+                        conn.sendall(message.encode())
+                        print(f"Sent: {message}")
             
                     time.sleep(1)  # Wait 1 second before sending the next message
 
