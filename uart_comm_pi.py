@@ -32,7 +32,7 @@ class UARTComm:
         #     return None
         try:
             buffer = ""
-            start_time = time.ticks_ms()
+            start_time = time.perf_counter()
             
             while True:
                 if self.uart.any():
@@ -46,13 +46,13 @@ class UARTComm:
                                 print(f"Received: {line}")
                                 return line
                             buffer = lines[-1]
-                    start_time = time.ticks_ms()  # Reset the timeout timer
-                if time.ticks_ms() - start_time > self.timeout:
+                    start_time = time.perf_counter()  # Reset the timeout timer
+                if time.perf_counter() - start_time > self.timeout:
                     if buffer:
                         print(f"Received partial message: {buffer.strip()}")
                         return None
                     buffer = ""  # Clear the buffer after timeout
-                    start_time = time.ticks_ms()  # Reset the timeout timer
+                    start_time = time.perf_counter()  # Reset the timeout timer
                 time.sleep_ms(100)
         except Exception as e:
             print(f"Failed to read message: {e}")
