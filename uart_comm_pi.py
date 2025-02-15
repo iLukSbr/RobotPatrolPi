@@ -35,7 +35,7 @@ class UARTComm:
             start_time = time.perf_counter()
             
             while True:
-                if self.uart.any():
+                if self.uart.in_waiting:
                     data = self.uart.read()
                     if data:
                         buffer += data.decode('utf-8')
