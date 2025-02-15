@@ -31,29 +31,19 @@ class UARTComm:
         #     print(f"Failed to read serial message: {e}")
         #     return None
         try:
-            buffer = ""
             start_time = time.perf_counter()
             
             while True:
                 if self.uart.in_waiting:
-                    data = self.uart.read()
-                    if data:
-                        buffer += data.decode('utf-8')
-                        if '\n' in buffer:
-                            lines = buffer.split('\n')
-                            for line in lines[:-1]:
-                                line = line.strip()
-                                print(f"Received: {line}")
-                                return line
-                            buffer = lines[-1]
+                    message = self.uart.readline().decode('utf-8').strip()
+                    if message:
+                        print(f"Received: {message}")
+                        return message
                     start_time = time.perf_counter()  # Reset the timeout timer
                 if time.perf_counter() - start_time > self.timeout:
-                    if buffer:
-                        print(f"Received partial message: {buffer.strip()}")
-                        return None
-                    buffer = ""  # Clear the buffer after timeout
-                    start_time = time.perf_counter()  # Reset the timeout timer
-                time.sleep_ms(100)
+                    print("Timeout reached without receiving a complete message.")
+                    return None
+                time.sleep(0.1)
         except Exception as e:
             print(f"Failed to read message: {e}")
             return None
