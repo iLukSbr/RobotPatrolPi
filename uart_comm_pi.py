@@ -38,7 +38,7 @@ class UARTComm:
                 if self.uart.in_waiting:
                     data = self.uart.read(self.uart.in_waiting).decode('utf-8')
                     buffer += data
-                    print(f"Buffer: {buffer}")  # Debug: print buffer content
+                    # print(f"Buffer: {buffer}")  # Debug: print buffer content
                     if '\n' in buffer:
                         lines = buffer.split('\n')
                         for line in lines[:-1]:
