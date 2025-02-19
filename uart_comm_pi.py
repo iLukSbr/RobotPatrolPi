@@ -1,4 +1,4 @@
-import serial, time
+import json, serial, time
 
 class UARTComm:
     # BAUD_RATE = 115200
@@ -6,9 +6,9 @@ class UARTComm:
     BAUD_RATE = 9600
     TIMEOUT = 5.0
     
-    def __init__(self, port='/dev/serial0', baudrate=BAUD_RATE, timeout=TIMEOUT):
+    def __init__(self, port='/dev/serial0', baudrate=BAUD_RATE, timeout=TIMEOUT, parity=serial.PARITY_EVEN, stopbits=serial.STOPBITS_TWO):
         try:
-            self.uart = serial.Serial(port=port, baudrate=baudrate, timeout=timeout)
+            self.uart = serial.Serial(port=port, baudrate=baudrate, timeout=timeout, parity=parity, stopbits=stopbits)
             self.timeout = timeout
             print(f"UART initialized on port {port} with baudrate {baudrate}")
         except Exception as e:
@@ -43,8 +43,12 @@ class UARTComm:
                         lines = buffer.split('\n')
                         for line in lines[:-1]:
                             line = line.strip()
-                            print(f"Received UART message: {line}")
-                            return line
+                            try:
+                                json_data = json.loads(line)
+                                print(f"Received valid JSON message from UART: {json_data}")
+                                return json_data
+                            except json.JSONDecodeError:
+                                print(f"Invalid JSON message from UART: {line}")
                         buffer = lines[-1]
                     start_time = time.perf_counter()  # Reset the timeout timer
                 if time.perf_counter() - start_time > self.timeout:
